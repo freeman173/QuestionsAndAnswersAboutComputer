@@ -1,0 +1,17 @@
+
+conda info //查看整个anaconda环境
+conda info -e//查看环境信息
+activate snowflake//激活环境
+conda remove -n flowers //移除某个环境
+conda remove -n bunnies numpy//移除某个环境的包
+conda create -n flowers//创建环境
+conda create -n snakes python=3//创建环境，并指定python版本
+deactivate //退出当前环境
+python --version
+#激活环境，再在此环境中安装包
+activate bunnies
+conda install beautifulsoup
+#对于那些无法通过conda安装或者从Anaconda.org获得的包，我们通常可以用pip命令来安装包
+pip install see
+#通过国内镜像来安装包
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pygame
