@@ -1,0 +1,8 @@
+启动数据库：net start mysql
+
+
+登录：mysql -u root -p 
+创建数据库:create database name
+查看数据库：show databases
+使用数据库:use 数据库名
+退出：exit
