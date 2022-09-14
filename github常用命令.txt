@@ -1,0 +1,18 @@
+https://github.com/freeman173/QuestionsAndAnswersAboutComputer.git
+
+
+git remote add + origin（推送名，可以随意取） + 远程仓库地址（……/vue…….git）
+
+查看远程连接
+git remote -v
+
+git取消与远程仓库的连接
+git remote remove origin
+
+
+
+git push -u 仓库名称(推送名:origin)  分支名(第一次推送文件 ，只有一个分支master)
+
+git checkout -b 你想要新建的分支名
+
+git push origin 上一步中的分支名
