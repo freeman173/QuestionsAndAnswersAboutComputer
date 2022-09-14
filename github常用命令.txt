@@ -16,3 +16,22 @@ git push -u 仓库名称(推送名:origin)  分支名(第一次推送文件 ，�
 git checkout -b 你想要新建的分支名
 
 git push origin 上一步中的分支名
+
+
+
+
+意思是远程仓库和本地仓库文件不一致，也就是冲突了，
+该如何解决/
+
+强制提交
+git push -f myremote master
+同步完之后提交
+git pull myremote master
+git push myremote master
+创建新分支new然后在新分支上提交
+git branch new
+git push myremote new
+
+
+
+
