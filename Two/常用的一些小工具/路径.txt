@@ -1,0 +1,2 @@
+D:
+cd PROJECT OF PYTHON/scrapy/name of project

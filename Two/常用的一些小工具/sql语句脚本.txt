@@ -1,0 +1,35 @@
+CREATE TABLE student(
+                   id char(3) not null primary key,
+                   name varchar(20) not null,
+                   grade int not null
+);
+
+CREATE TABLE goods(
+                   id int(32) auto_increment primary key ,
+                   title varchar(100) not null,
+                   link varchar(100) unique ,
+                   comment varchar(100)
+);
+
+
+
+insert into jc.student values
+('002','³Â³¬',59),
+('003','ÓàÖÐÆ½',62),
+('004','¸ßÅÊ',73);
+
+drop table name
+
+insert into students
+(name, grade_math, grade_english, grade_zhengzhi, grade_zhuanyeke)
+values
+('³Â³¬',59,49,69,90),
+('ÓàÖÐÆ½',62,45,56,78),
+('¸ßÅÊ',67,67,45,100),
+('½¯³¬',100,67,70,120),
+('Çñ¿¡·å',34,45,45,56),
+('×³¸ç',56,56,67,78),
+('³ÂÑô',56,56,46,78);
+
+
+delete from table where Ìõ¼þ
