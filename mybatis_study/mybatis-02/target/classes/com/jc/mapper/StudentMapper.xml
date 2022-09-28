@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jc.mapper.StudentMapper">
+    <cache
+            eviction="FIFO"
+            flushInterval="60000"
+            size="512"
+            readOnly="true"/>
+
+
+<!--    结果嵌套查询： 一对多 -->
+    <select id="selectStudents" resultMap="StudentTeacher">
+        select s.id sid,s.name sname,t.id tid,t.name tname
+        from students s ,teachers t
+        where s.tid=t.id
+    </select>
+
+    <resultMap id="StudentTeacher" type="student">
+        <result property="id" column="sid"/>
+        <result property="name" column="sname"/>
+<!--     关联（association）元素处理“有一个”类型的关系。   -->
+        <association property="teacher" javaType="teacher">
+            <result property="id" column="tid"/>
+            <result property="name" column="tname"/>
+        </association>
+
+    </resultMap>
+
+
+</mapper>

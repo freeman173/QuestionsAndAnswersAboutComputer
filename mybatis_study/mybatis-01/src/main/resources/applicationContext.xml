@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<!--
+第二种整合方式
+使用spring的ioc来管理mybatis的数据源
+-->
+    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/mybatis"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+    </bean>
+
+<!--
+再配置一个sqlSessionFactory
+-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" scope="prototype">
+<!--        绑定上面的数据源-->
+        <property name="dataSource" ref="datasource"/>
+<!--        绑定mybatis的配置文件-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+<!--绑定映射文件-->
+<!--        <property name="mapperLocations" value="classpath:com/jc/mapper/*.xml"/>-->
+
+    </bean>
+
+<!--
+配置一个sqlsession
+-->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+<!--      index=“0”：  给第一个属性值赋值-->
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
+
+    </bean>
+
+
+<!--    配置一个接口实现类-->
+    <bean id="userMapper" class="com.jc.mapper.UserMapperImpl">
+        <property name="sqlSession" ref="sqlSession"/>
+    </bean>
+
+
+
+</beans>
